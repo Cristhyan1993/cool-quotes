@@ -11,6 +11,11 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const pathName = usePathname();
   const router = useRouter();
 
+  const creatorImage = post.creator && post.creator.image
+  const creatorUsername = post.creator && post.creator.username
+  const creatorEmail = post.creator && post.creator.email
+  const creator_Id = post.creator && post.creator._id
+
   const handleCopy = () => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
@@ -23,7 +28,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       <div className="flex justify-between items-start gap-5">
         <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
           <Image
-            src={post.creator.image}
+            src={creatorImage}
             alt="user image"
             width={40}
             height={40}
@@ -31,10 +36,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           />
           <div className="flex flex-col">
             <h3 className="font-satoshi font-semibold text-gray-900">
-              {post.creator.username}
+              {creatorUsername}
             </h3>
             <p className="font-inter text-sm text-gray-500">
-              {post.creator.email}
+              {creatorEmail}
             </p>
           </div>
         </div>
@@ -59,7 +64,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       >
         #{post.tag}
       </p>
-      {session?.user.id === post.creator._id && pathName === "/profile" && (
+      {session?.user.id === creator_Id && pathName === "/profile" && (
         <div className="mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
           <p className="font-inter text-sm blue_gradient cursor-pointer" onClick={handleEdit} >Edit</p>
           <p
