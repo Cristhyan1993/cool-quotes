@@ -9,7 +9,7 @@ export const GET = async (req, res) => {
             status: 200
         })
     } catch (error) {
-        return new Response("Dailed to fetch all posts", {
+        return new Response("Failed to fetch all posts", {
             status: 500
         })
     }
