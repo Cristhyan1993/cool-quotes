@@ -29,7 +29,6 @@ const Feed = () => {
   const fetchPosts = async () => {
     const response = await fetch("/api/prompt");
     const data = await response.json();
-
     setAllPosts(data);
   };
 
@@ -39,9 +38,10 @@ const Feed = () => {
 
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+    console.log("loook", allPosts)
     return allPosts.filter(
       (item) =>
-        regex.test(item.creator.username) ||
+        // regex.test(item.creator.username) ||
         regex.test(item.tag) ||
         regex.test(item.prompt)
     );
