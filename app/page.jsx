@@ -7,7 +7,7 @@ const Home = () => {
       <h1 className="head_text text-center" >
         Discover & Share
         <br className="max-md:hidden" />
-        <span className="blue_gradient text-center">Quotes</span>
+        <span className="blue_gradient text-center"> Quotes</span>
       </h1>
       <p className="desc text-center">
         Cool Quotes is online environment where users can
