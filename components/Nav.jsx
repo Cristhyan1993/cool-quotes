@@ -23,9 +23,10 @@ const Nav = () => {
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/CoolQuotesLogo.png"
-          width="150"
-          height="150"
+          width={150}
+          height={150}
           alt="logo"
+          className="h-auto w-auto"
         ></Image>
       </Link>
       {/*desktop navigation */}
@@ -57,7 +58,7 @@ const Nav = () => {
                     type="button"
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
-                    className="'blue_btn"
+                    className="blue_btn"
                   >
                     Sign In
                   </button>
@@ -100,7 +101,7 @@ const Nav = () => {
                     setToggleDropDown(false);
                     signOut();
                   }}
-                  className="mt-5 w-full black_btn"
+                  className="mt-5 w-full blue_btn"
                 >
                   Sign Out
                 </button>
@@ -116,7 +117,7 @@ const Nav = () => {
                   onClick={() => {
                     signIn(provider.id);
                   }}
-                  className='black_btn'
+                  className='blue_btn'
                 >
                   Sign in
                 </button>
